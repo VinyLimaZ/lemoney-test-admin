@@ -1,0 +1,176 @@
+require: rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.5.1
+  TargetRailsVersion: 5.2.3
+  Exclude:
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
+    - 'actionpack/lib/action_dispatch/journey/parser.rb'
+    - 'railties/test/fixtures/tmp/**/*'
+    - 'actionmailbox/test/dummy/**/*'
+    - 'actiontext/test/dummy/**/*'
+    - '**/node_modules/**/*'
+
+Layout/LineLength:
+  Max: 120
+Layout/HashAlignment:
+  EnforcedColonStyle: key
+Layout/CaseIndentation:
+  Enabled: true
+Layout/CommentIndentation:
+  Enabled: true
+Layout/ElseAlignment:
+  Enabled: true
+Layout/EndAlignment:
+  Enabled: true
+  EnforcedStyleAlignWith: variable
+  AutoCorrect: true
+Layout/EmptyLineAfterMagicComment:
+  Enabled: true
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+  EnforcedStyle: only_before
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: true
+# In a regular class definition, no empty lines around the body.
+Layout/EmptyLinesAroundClassBody:
+  Enabled: true
+# In a regular method definition, no empty lines around the body.
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: true
+# In a regular module definition, no empty lines around the body.
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: true
+Layout/FirstArgumentIndentation:
+  Enabled: true
+Layout/IndentationWidth:
+  Enabled: true
+Layout/LeadingCommentSpace:
+  Enabled: true
+Layout/SpaceAfterColon:
+  Enabled: true
+Layout/SpaceAfterComma:
+  Enabled: true
+Layout/SpaceAfterSemicolon:
+  Enabled: true
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+Layout/SpaceAroundKeyword:
+  Enabled: true
+Layout/SpaceBeforeComma:
+  Enabled: true
+Layout/SpaceBeforeComment:
+  Enabled: true
+Layout/SpaceBeforeFirstArg:
+  Enabled: true
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+  EnforcedStyleForEmptyBraces: space
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+Layout/SpaceInsideParens:
+  Enabled: true
+Layout/Tab:
+  Enabled: true
+Layout/TrailingEmptyLines:
+  Enabled: true
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Lint/AmbiguousOperator:
+  Enabled: true
+Lint/AmbiguousRegexpLiteral:
+  Enabled: true
+Lint/DeprecatedClassMethods:
+  Enabled: true
+Lint/ErbNewArguments:
+  Enabled: true
+Lint/RaiseException:
+  Enabled: true
+Lint/RedundantStringCoercion:
+  Enabled: true
+# Use my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
+Lint/RequireParentheses:
+  Enabled: true
+Lint/ShadowingOuterLocalVariable:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
+Lint/UriEscapeUnescape:
+  Enabled: true
+Lint/UselessAssignment:
+  Enabled: true
+
+Metrics/BlockLength:
+  ExcludedMethods: ['define', 'factory', 'trait', 'describe', 'context', 'feature', 'scenario', 'let', 'included']
+
+Style/AndOr:
+  EnforcedStyle: conditionals
+Style/AsciiComments:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/ColonMethodCall:
+  Enabled: true
+Style/DefWithParentheses:
+  Enabled: true
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
+  Exclude:
+    - 'actionview/test/**/*.builder'
+    - 'actionview/test/**/*.ruby'
+    - 'actionpack/test/**/*.builder'
+    - 'actionpack/test/**/*.ruby'
+    - 'activestorage/db/migrate/**/*.rb'
+    - 'activestorage/db/update_migrate/**/*.rb'
+    - 'actionmailbox/db/migrate/**/*.rb'
+    - 'actiontext/db/migrate/**/*.rb'
+Style/HashEachMethods:
+  Enabled: true
+Style/HashSyntax:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+# Defining a method with parameters needs parentheses.
+Style/MethodDefParentheses:
+  Enabled: true
+Style/MixinUsage:
+  Exclude:
+    - bin/*
+Style/ParenthesesAroundCondition:
+  Enabled: true
+Style/RedundantBegin:
+  Enabled: true
+Style/RedundantFreeze:
+  Enabled: true
+Style/RedundantPercentQ:
+  Enabled: true
+Style/RedundantReturn:
+  Enabled: true
+  AllowMultipleReturnValues: true
+Style/Semicolon:
+  Enabled: true
+  AllowAsExpressionSeparator: true
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: single_quotes
+Style/TrivialAccessors:
+  Enabled: true
+# Check quotes usage according to lint rule below.
+# Use quotes for string literals when they are enough.
+# Style/MethodCallWithArgsParentheses:
+#  Enabled: true
+#  IgnoredMethods: ['gem',  'group', 'require', 'require_relative', 'run', 'to', 'include', 'extend', 'source', 'ruby', 'has_paper_trail']

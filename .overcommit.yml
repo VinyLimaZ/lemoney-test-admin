@@ -1,0 +1,36 @@
+gemfile: Gemfile
+
+PreCommit:
+  BrokenSymlinks:
+    enabled: false
+
+  BundleCheck:
+    enabled: true
+
+  ExecutePermissions:
+    enabled: true
+    exclude:
+      - 'bin/*'
+      - 'libexec/**/*'
+      - 'template-dir/hooks/**/*'
+
+  HardTabs:
+    enabled: true
+
+  MasterHooksMatch:
+    enabled: true
+    quiet: true
+
+  RuboCop:
+    enabled: true
+    include:
+      - '**/*.gemspec'
+      - '**/*.rb'
+      - '**/Gemfile'
+      - template-dir/hooks/overcommit-hook
+
+  TrailingWhitespace:
+    enabled: true
+
+  YamlSyntax:
+    enabled: true
