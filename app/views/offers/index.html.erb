@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Offers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Advertiser name</th>
+      <th>Url</th>
+      <th>Description</th>
+      <th>Starts at</th>
+      <th>Ends at</th>
+      <th>Premium</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <td><%= offer.advertiser_name %></td>
+        <td><a href="<%= offer.url %>"><%= offer.url %></a></td>
+        <td><%= offer.description %></td>
+        <td><%= offer.starts_at %></td>
+        <td><%= offer.ends_at %></td>
+        <td><%= offer.premium %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Offer', new_offer_path %>
