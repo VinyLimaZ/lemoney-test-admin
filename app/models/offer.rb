@@ -1,18 +1,21 @@
 # frozen_string_literal: true
 
 class Offer < ApplicationRecord
+  include UrlValidator
+
   validates :advertiser_name, :url, :description, :starts_at, presence: true
   validates :advertiser_name, uniqueness: true
   validates :description, length: { maximum: 500 }
   validate :verify_url
 
+  def url=(raw_url)
+    self[:url] = sanitize_url(raw_url) if raw_url.present?
+  end
+
   private
   def verify_url
-    uri = URI.parse(url)
-    return if uri.is_a?(URI::HTTP) && uri.host.present?
+    return if url_valid?(url)
 
-    add_url_errors
-  rescue URI::InvalidURIError, URI::BadURIError
     add_url_errors
   end
 

@@ -19,13 +19,24 @@ describe Offer do
     end
 
     context 'custom validate' do
-      describe 'valid_url' do
-        subject { build(:offer, url: 'ttps://www.google.com') }
-        it { is_expected.not_to be_valid }
+      describe 'verify_url' do
+        context 'a really broken URL returns a error' do
+          subject { build(:offer, url: 'ttps://www.googlecom\n') }
+          it { is_expected.not_to be_valid }
 
-        before { subject.valid? }
-        it { expect(subject.errors.full_messages).to eq('Invalid URL, please verify and try again') }
+          before { subject.valid? }
+          it { expect(subject.errors.full_messages).to include('Invalid URL, please verify and try again') }
+        end
       end
+    end
+  end
+
+  describe '#url=' do
+    context 'sanitize the URL to fix little problems' do
+      subject { build(:offer, url: 'ttps://www.google.com') }
+
+      it { is_expected.to be_valid }
+      it { expect(subject.url).to eq('https://www.google.com') }
     end
   end
 end

@@ -13,7 +13,7 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
 
     if @offer.save
-      redirect_to offers_path, status: :created, notice: 'Offer was successfully created.'
+      redirect_to offers_path, notice: 'Offer was successfully created.'
     else
       render :new
     end
