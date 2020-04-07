@@ -11,19 +11,21 @@
       <th>Starts at</th>
       <th>Ends at</th>
       <th>Premium</th>
-      <th colspan="3"></th>
+      <th>Actions</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @offers.each do |offer| %>
-      <tr>
+      <tr id="<%= offer.advertiser_name %>">
         <td><%= offer.advertiser_name %></td>
         <td><a href="<%= offer.url %>"><%= offer.url %></a></td>
         <td><%= offer.description %></td>
         <td><%= offer.starts_at %></td>
         <td><%= offer.ends_at %></td>
         <td><%= offer.premium %></td>
+        <td><%= link_to 'Destroy offer', offer_path(offer), method: :delete %>
       </tr>
     <% end %>
   </tbody>
