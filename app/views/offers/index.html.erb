@@ -18,15 +18,7 @@
 
   <tbody>
     <% @offers.each do |offer| %>
-      <tr id="<%= offer.advertiser_name %>">
-        <td><%= offer.advertiser_name %></td>
-        <td><a href="<%= offer.url %>"><%= offer.url %></a></td>
-        <td><%= offer.description %></td>
-        <td><%= offer.starts_at %></td>
-        <td><%= offer.ends_at %></td>
-        <td><%= offer.premium %></td>
-        <td><%= link_to 'Destroy offer', offer_path(offer), method: :delete %>
-      </tr>
+      <%= render partial: 'offer', locals: { offer: offer } %>
     <% end %>
   </tbody>
 </table>
