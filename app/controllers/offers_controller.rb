@@ -20,13 +20,32 @@ class OffersController < ApplicationController
   end
 
   def destroy
-    offer = Offer.find(params[:id])
+    offer = find_offer
     offer.destroy
 
     redirect_to offers_path, notice: 'Offer was successfully destroyed'
   end
 
+  def edit
+    @offer = find_offer
+  end
+
+  def update
+    @offer = find_offer
+
+    if @offer.update(offer_params)
+      redirect_to offers_path, notice: 'Offer was successfully updated'
+    else
+      @offer.reload
+      render :edit
+    end
+  end
+
   private
+  def find_offer
+    Offer.find(params[:id])
+  end
+
   def offer_params
     params.require(:offer)
           .permit(:advertiser_name,

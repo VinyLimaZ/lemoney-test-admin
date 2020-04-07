@@ -7,7 +7,7 @@ feature 'Admin destroys an offer' do
 
   scenario 'and is redirected to index' do
     visit offers_path
-    save_and_open_page
+
     within "##{offer.advertiser_name}" do
       click_link 'Destroy offer'
     end
