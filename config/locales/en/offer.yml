@@ -1,0 +1,18 @@
+en:
+  activerecord:
+    models:
+      offer: 'offer'
+    attributes:
+      offer:
+        advertiser_name: 'Advertiser name'
+        url: 'URL'
+        description: 'Description'
+        starts_at: 'Date to start'
+        ends_at: 'Date to end'
+        premium: 'Premium advertise'
+    errors:
+      models:
+        offer:
+          attributes:
+            url:
+              invalid_url: 'Invalid URL, please verify and try again'

@@ -14,6 +14,10 @@ module Admin
   class Application < Rails::Application
     config.load_defaults 6.0
 
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+    config.i18n.enforce_available_locales = false
+    config.i18n.default_locale = :en
+
     config.generators do |generator|
       generator.test_framework :rspec, fixture: false
       generator.javascripts false
