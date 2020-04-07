@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :offer do
-    advertiser_name { Faker::Company.unique.name }
+    advertiser_name { Faker::Name.unique.first_name }
     url { Faker::Internet.url }
     description { Faker::Lorem.paragraph_by_chars(number: 500, supplemental: false) }
     starts_at { Date.current }

@@ -19,6 +19,13 @@ class OffersController < ApplicationController
     end
   end
 
+  def destroy
+    offer = Offer.find(params[:id])
+    offer.destroy
+
+    redirect_to offers_path, notice: 'Offer was successfully destroyed'
+  end
+
   private
   def offer_params
     params.require(:offer)
