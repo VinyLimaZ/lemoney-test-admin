@@ -10,6 +10,7 @@
       <th>Description</th>
       <th>Starts at</th>
       <th>Ends at</th>
+      <th>State</th>
       <th>Premium</th>
       <th>Actions</th>
       <th colspan="2"></th>
@@ -18,7 +19,8 @@
 
   <tbody>
     <% @offers.each do |offer| %>
-      <%= render partial: 'offer', locals: { offer: offer } %>
+      <% offer_decorated = OfferDecorator.new(offer) %>
+      <%= render partial: 'offer', locals: { offer: offer_decorated } %>
     <% end %>
   </tbody>
 </table>

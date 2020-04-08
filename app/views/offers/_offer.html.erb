@@ -4,9 +4,11 @@
   <td><%= offer.description %></td>
   <td><%= offer.starts_at %></td>
   <td><%= offer.ends_at %></td>
+  <td><%= offer.state_to_s %>
   <td><%= offer.premium %></td>
   <td>
-    <%= link_to 'Edit', edit_offer_path(offer) %>
-    <%= link_to 'Destroy', offer_path(offer), method: :delete %>
+    <%= link_to 'Edit offer', edit_offer_path(offer) %>
+    <%= link_to "#{offer.opposite_state_to_s} offer", toggle_state_offer_path(offer), method: :post %>
+    <%= link_to 'Destroy offer', offer_path(offer), method: :delete %>
   </td>
 </tr>
