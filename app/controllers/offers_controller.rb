@@ -41,6 +41,17 @@ class OffersController < ApplicationController
     end
   end
 
+  def toggle_state
+    @offer = find_offer
+
+    if @offer.toggle_state!
+      redirect_to offers_path, notice: 'State was successfully changed'
+    else
+      @offer.reload
+      render :edit
+    end
+  end
+
   private
   def find_offer
     Offer.find(params[:id])
