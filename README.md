@@ -19,10 +19,10 @@ brought to me :D
 
 - First `bundle install`
 - Second `rails db:create db:migrata db:setup`
-- Third `rails webpacker:install` (I have had to remove this, but the time is
+- Third `yarn install --check-files` (I have had to remove this, but the time is
     short to see how to do this, so we have to deal with it)
-- Third `rspec`
-- Fourth `rails s`
+- Fourth `rspec`
+- Fifth `rails s`
 
 ## For lazy people like all oldscholl programmers and I, even I being a noob
 
