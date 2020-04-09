@@ -7,7 +7,7 @@ FactoryBot.define do
     description { Faker::Lorem.paragraph_by_chars(number: 500, supplemental: false) }
     starts_at { Date.current }
     ends_at { Date.current + 10.days }
-    enabled { nil }
+    enabled { true }
     premium { false }
 
     trait :premium do

@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_173000) do
     t.boolean "premium"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "enabled"
+    t.boolean "enabled", default: true
     t.index ["advertiser_name"], name: "index_offers_on_advertiser_name", unique: true
   end
 

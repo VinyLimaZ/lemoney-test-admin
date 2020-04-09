@@ -53,7 +53,7 @@ describe Offer do
     end
 
     context 'if admin didnt explicit disabled the offer' do
-      let(:offer) { create(:offer, enabled: nil) }
+      let(:offer) { create(:offer) }
       context 'it will disables it' do
         it { is_expected.to be false }
       end
@@ -92,7 +92,7 @@ describe Offer do
         end
 
         context 'and isnt ended yet' do
-          let(:offer) { create(:offer, enabled: nil) }
+          let(:offer) { create(:offer) }
 
           it { is_expected.to be true }
         end
@@ -145,21 +145,6 @@ describe Offer do
       let(:offer) { create(:offer, starts_at: Date.current + 1.day) }
 
       it { is_expected.to be true }
-    end
-  end
-
-  describe '#disabled?' do
-    subject { offer.disabled? }
-    context 'if admin disabled the offer' do
-      let(:offer) { create(:offer, :disabled) }
-
-      it { is_expected.to be true }
-    end
-
-    context 'if admin didnt explicit disabled the offer' do
-      let(:offer) { create(:offer, enabled: nil) }
-
-      it { is_expected.to be false }
     end
   end
 end

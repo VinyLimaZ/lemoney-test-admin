@@ -6,11 +6,7 @@ module Offers
 
     included do
       def toggle_state
-        self[:enabled] = disabled? ? true : false
-      end
-
-      def disabled?
-        self[:enabled] == false
+        self[:enabled] = !self[:enabled]
       end
 
       def not_started?

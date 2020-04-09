@@ -19,9 +19,9 @@ class Offer < ApplicationRecord
   end
 
   def enabled?
-    return false if disabled? || not_started? || finished?
+    return false if not_started? || finished?
 
-    true
+    self[:enabled]
   end
 
   private
