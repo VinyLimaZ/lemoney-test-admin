@@ -8,7 +8,11 @@
   <td><%= offer.premium %></td>
   <td>
     <%= link_to 'Edit offer', edit_offer_path(offer) %>
+  </td>
+  <td>
     <%= link_to "#{offer.opposite_state_to_s} offer", toggle_state_offer_path(offer), method: :post %>
+  </td>
+  <td>
     <%= link_to 'Destroy offer', offer_path(offer), method: :delete %>
   </td>
 </tr>
