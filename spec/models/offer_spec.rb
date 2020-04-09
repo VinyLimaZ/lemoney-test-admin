@@ -79,14 +79,14 @@ describe Offer do
 
     context 'if the offer isnt disabled' do
       context 'and the offer isnt started' do
-        let(:offer) { create(:offer, :not_started_yet, enabled: nil) }
+        let(:offer) { create(:offer, :not_started_yet) }
 
         it { is_expected.to be false }
       end
 
       context 'the offer already started' do
         context 'but already ended' do
-          let(:offer) { create(:offer, :already_ended, enabled: nil) }
+          let(:offer) { create(:offer, :already_ended) }
 
           it { is_expected.to be false }
         end
